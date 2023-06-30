@@ -1,42 +1,19 @@
-import { useEffect, useState } from 'react';
-
-import { getMovieList, searchMovie, rated } from './api';
-import MovieList from './components/MovieList';
-import SearchBox from './components/SearchBox';
-import Banner from './components/Banner';
-import TopRate from './components/TopRate';
+import { Route, Routes } from 'react-router-dom';
+import Home from './page/Home';
+import TopRate from './page/TopRate';
+import MostViewed from './page/MostViewed';
+import Upcomming from './page/Upcomming';
 
 const App = () => {
-    const [popularMovies, setPopularMovies] = useState([]);
-    useEffect(() => {
-        getMovieList().then((result) => {
-            setPopularMovies(result);
-        });
-    }, []);
-
-    const [topRated, setTopRated] = useState([]);
-    useEffect(() => {
-        rated().then((result) => {
-            setTopRated(result);
-        });
-    }, []);
-
-    const search = async (q) => {
-        if (q.length > 3) {
-            const query = await searchMovie(q);
-            setPopularMovies(query.results);
-        }
-    };
     return (
-        <div className='w-full h-fit bg-black '>
-            <Banner popularMovies={popularMovies} />
-
-            <TopRate topRated={topRated} />
-
-            {/* <SearchBox search={search} /> */}
-
-            <MovieList popularMovies={popularMovies} />
-        </div>
+        <>
+            <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='topRate' element={<TopRate />} />
+                <Route path='mostViewed' element={<MostViewed />} />
+                <Route path='upcomming' element={<Upcomming />} />
+            </Routes>
+        </>
     );
 };
 

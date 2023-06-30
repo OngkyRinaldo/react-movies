@@ -1,10 +1,22 @@
 import axios from 'axios';
 
-export const getMovieList = async () => {
+export const getMostViewed = async () => {
     const movie = await axios.get(
         `${
             import.meta.env.VITE_REACT_APP_BASEURL
         }/movie/popular?page=1&api_key=${
+            import.meta.env.VITE_REACT_APP_API_KEY
+        }`
+    );
+
+    return movie.data.results;
+};
+
+export const getUpcoming = async () => {
+    const movie = await axios.get(
+        `${
+            import.meta.env.VITE_REACT_APP_BASEURL
+        }/movie/upcoming?page=1&api_key=${
             import.meta.env.VITE_REACT_APP_API_KEY
         }`
     );

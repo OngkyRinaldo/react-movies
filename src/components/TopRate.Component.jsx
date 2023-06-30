@@ -23,10 +23,10 @@ const TopRate = ({ topRated }) => {
         },
     };
     return (
-        <div className='text-white container mx-auto my-10 px-5 '>
+        <div className='md:border-y md:border-white  text-white container mx-auto my-10 p-5 '>
             <div className='flex items-center justify-between mb-5'>
                 <h2>Top Rated</h2>
-                <Link to='#' className='text-orange-500 hover:text-white'>
+                <Link to='topRate' className='text-orange-500 hover:text-white'>
                     View All
                 </Link>
             </div>
