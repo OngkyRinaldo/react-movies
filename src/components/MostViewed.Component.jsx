@@ -23,9 +23,9 @@ const MostViewed = ({ mostViewed }) => {
         },
     };
     return (
-        <div className='md:border-y md:border-white  text-white container mx-auto my-10 p-5 '>
+        <div className='border-b border-white  text-white container mx-auto my-10 p-5 '>
             <div className='flex items-center justify-between mb-5'>
-                <h2>Most Viewed</h2>
+                <h2>Popular</h2>
                 <Link
                     to='mostViewed'
                     className='text-orange-500 hover:text-white'

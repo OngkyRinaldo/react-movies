@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-
 import { rated, searchMovie } from '../api';
 import Navbar from '../components/navbar/NavbarTopRate';
+import Footer from '../components/Footer';
 
 const TopRate = () => {
     const [topRated, setTopRated] = useState([]);
@@ -21,7 +21,7 @@ const TopRate = () => {
     return (
         <div className='w-full h-fit bg-black '>
             <Navbar search={search} />
-            <div className='w-full grid grid-cols-1 md:grid-cols-2 md:gap-2 px-5 pb-5 mt-10'>
+            <div className='w-full grid grid-cols-1 md:grid-cols-2 md:gap-2 px-5 pb-5 mt-10 border-b border-white'>
                 {topRated.map((rate, i) => {
                     return (
                         <div
@@ -47,6 +47,7 @@ const TopRate = () => {
                     );
                 })}
             </div>
+            <Footer />
         </div>
     );
 };

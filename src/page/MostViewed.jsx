@@ -1,6 +1,7 @@
 import { getMostViewed, searchMovie } from '../api';
 import { useEffect, useState } from 'react';
 import Navbar from '../components/navbar/NavbarMostView';
+import Footer from '../components/Footer';
 
 const MostViewed = () => {
     const [mostViewed, setMostViewed] = useState([]);
@@ -20,7 +21,7 @@ const MostViewed = () => {
     return (
         <div className='w-full h-fit bg-black '>
             <Navbar search={search} />
-            <div className='w-full grid grid-cols-1 md:grid-cols-2 md:gap-2 px-5 pb-5 mt-10'>
+            <div className='w-full grid grid-cols-1 md:grid-cols-2 md:gap-2 px-5 pb-5 mt-10 border-b border-white'>
                 {mostViewed.map((view, i) => {
                     return (
                         <div
@@ -41,6 +42,8 @@ const MostViewed = () => {
                     );
                 })}
             </div>
+
+            <Footer />
         </div>
     );
 };

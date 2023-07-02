@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-
 import { getUpcoming, searchMovie } from '../api';
 import Navbar from '../components/navbar/NavbarUpomming';
+import Footer from '../components/Footer';
 
 const Upcomming = () => {
     const [upcommings, setUpcommings] = useState([]);
@@ -22,7 +22,7 @@ const Upcomming = () => {
         <div className='w-full h-fit bg-black '>
             <Navbar search={search} />
 
-            <div className='w-full grid grid-cols-1 md:grid-cols-2 md:gap-2 px-5 pb-5 mt-10'>
+            <div className='w-full grid grid-cols-1 md:grid-cols-2 md:gap-2 px-5 pb-5 mt-10 border-b border-white'>
                 {upcommings.map((upcomming, i) => {
                     return (
                         <div
@@ -51,6 +51,7 @@ const Upcomming = () => {
                     );
                 })}
             </div>
+            <Footer />
         </div>
     );
 };

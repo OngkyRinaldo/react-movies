@@ -89,7 +89,7 @@ const Navbar = () => {
                                         to='/mostViewed'
                                         className='text-white cursor-pointer py-4 px-5 rounded-3xl text-bioMain hover:underline hover:decoration-orange-500 '
                                     >
-                                        Most View
+                                        Popular
                                     </Link>
                                 </li>
                             </ul>

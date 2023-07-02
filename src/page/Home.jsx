@@ -7,6 +7,7 @@ import TopRate from '../components/TopRate.Component';
 import MostViewed from '../components/MostViewed.Component';
 import Upcomming from '../components/Upcomming.component';
 import Navbar from '../components/navbar/Navbar';
+import Footer from '../components/Footer';
 
 const Home = () => {
     const [nowPlaying, setNowPlaying] = useState([]);
@@ -49,6 +50,7 @@ const Home = () => {
             {/* <SearchBox search={search} /> */}
 
             <MostViewed mostViewed={mostViewed} />
+            <Footer />
         </div>
     );
 };
