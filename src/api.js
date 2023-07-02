@@ -24,6 +24,18 @@ export const getUpcoming = async () => {
     return movie.data.results;
 };
 
+export const getNowplaying = async () => {
+    const movie = await axios.get(
+        `${
+            import.meta.env.VITE_REACT_APP_BASEURL
+        }/movie/now_playing?page=1&api_key=${
+            import.meta.env.VITE_REACT_APP_API_KEY
+        }`
+    );
+
+    return movie.data.results;
+};
+
 export const rated = async () => {
     const rate = await axios.get(
         `${

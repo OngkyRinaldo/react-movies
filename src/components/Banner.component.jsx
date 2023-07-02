@@ -2,10 +2,10 @@ import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-const Banner = ({ mostViewed }) => {
+const Banner = ({ nowPlaying }) => {
     return (
         <Carousel className='text-center border-y border-white rounded-lg shadow-lg shadow-white mb-5'>
-            {mostViewed.slice(0, 10).map((banner, i) => {
+            {nowPlaying.slice(0, 10).map((banner, i) => {
                 return (
                     <div key={i} className='w-fit h-fit mx-auto'>
                         <img
