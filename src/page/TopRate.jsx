@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { rated } from '../api';
+import { rated, searchMovie } from '../api';
+import Navbar from '../components/navbar/NavbarTopRate';
 
 const TopRate = () => {
     const [topRated, setTopRated] = useState([]);
@@ -9,9 +10,18 @@ const TopRate = () => {
             setTopRated(result);
         });
     }, []);
+
+    const search = async (q) => {
+        if (q.length > 3) {
+            const query = await searchMovie(q);
+            setTopRated(query.results);
+        }
+    };
+
     return (
         <div className='w-full h-fit bg-black '>
-            <div className='w-full flex flex-wrap items-center justify-center gap-2 px-5 pb-5'>
+            <Navbar search={search} />
+            <div className='w-full grid grid-cols-1 md:grid-cols-2 md:gap-2 px-5 pb-5 mt-10'>
                 {topRated.map((rate, i) => {
                     return (
                         <div
@@ -22,10 +32,11 @@ const TopRate = () => {
                                 {rate.title}
                             </h1>
                             <img
-                                className=''
+                                className='block mx-auto object-cover '
                                 src={`${
                                     import.meta.env.VITE_REACT_APP_BASEIMGURL
                                 }/${rate.poster_path}`}
+                                alt={rate.title}
                             />
                             <div className='p-5 text-center'>
                                 <p className='text-green-400 text-lg'>

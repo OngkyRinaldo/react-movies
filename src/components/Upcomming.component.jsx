@@ -23,37 +23,40 @@ const Upcomming = ({ upcommings }) => {
         },
     };
     return (
-        <div className='md:border-y md:border-white  text-white container mx-auto my-10 p-5 '>
-            <div className='flex items-center justify-between mb-5'>
-                <h2>Upcomming</h2>
-                <Link
-                    to='upcomming'
-                    className='text-orange-500 hover:text-white'
-                >
-                    View All
-                </Link>
+        <>
+            <div className='md:border-y md:border-white  text-white container mx-auto my-10 p-5 '>
+                <div className='flex items-center justify-between mb-5'>
+                    <h2>Upcomming</h2>
+                    <Link
+                        to='upcomming'
+                        className='text-orange-500 hover:text-white'
+                    >
+                        View All
+                    </Link>
+                </div>
+                <Carousel responsive={responsive} className=' '>
+                    {upcommings.slice(0, 10).map((upcomming, i) => {
+                        return (
+                            <div key={i} className='text-center'>
+                                <img
+                                    src={`${
+                                        import.meta.env
+                                            .VITE_REACT_APP_BASEIMGURL
+                                    }/${upcomming.backdrop_path}`}
+                                    alt={upcomming.title}
+                                />
+                                <p className='text-lg  mt-3 text-slate-400 hover:text-slate-200'>
+                                    {upcomming.title}
+                                </p>
+                                <p className='text-lg  mt-3 text-red-500 hover:text-slate-200'>
+                                    {upcomming.release_date}
+                                </p>
+                            </div>
+                        );
+                    })}
+                </Carousel>
             </div>
-            <Carousel responsive={responsive} className=' '>
-                {upcommings.slice(0, 10).map((upcomming, i) => {
-                    return (
-                        <div key={i} className='text-center'>
-                            <img
-                                src={`${
-                                    import.meta.env.VITE_REACT_APP_BASEIMGURL
-                                }/${upcomming.backdrop_path}`}
-                                alt={upcomming.title}
-                            />
-                            <p className='text-lg  mt-3 text-slate-400 hover:text-slate-200'>
-                                {upcomming.title}
-                            </p>
-                            <p className='text-lg  mt-3 text-red-500 hover:text-slate-200'>
-                                {upcomming.release_date}
-                            </p>
-                        </div>
-                    );
-                })}
-            </Carousel>
-        </div>
+        </>
     );
 };
 

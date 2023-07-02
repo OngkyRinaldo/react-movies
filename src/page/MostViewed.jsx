@@ -1,5 +1,6 @@
-import { getMostViewed } from '../api';
+import { getMostViewed, searchMovie } from '../api';
 import { useEffect, useState } from 'react';
+import Navbar from '../components/navbar/NavbarMostView';
 
 const MostViewed = () => {
     const [mostViewed, setMostViewed] = useState([]);
@@ -8,9 +9,18 @@ const MostViewed = () => {
             setMostViewed(result);
         });
     }, []);
+
+    const search = async (q) => {
+        if (q.length > 3) {
+            const query = await searchMovie(q);
+            setMostViewed(query.results);
+        }
+    };
+
     return (
         <div className='w-full h-fit bg-black '>
-            <div className='w-full flex flex-wrap items-center justify-center gap-2 px-5 pb-5'>
+            <Navbar search={search} />
+            <div className='w-full grid grid-cols-1 md:grid-cols-2 md:gap-2 px-5 pb-5 mt-10'>
                 {mostViewed.map((view, i) => {
                     return (
                         <div
@@ -21,10 +31,11 @@ const MostViewed = () => {
                                 {view.title}
                             </h1>
                             <img
-                                className=''
+                                className='block mx-auto object-cover '
                                 src={`${
                                     import.meta.env.VITE_REACT_APP_BASEIMGURL
                                 }/${view.poster_path}`}
+                                alt={view.title}
                             />
                         </div>
                     );
