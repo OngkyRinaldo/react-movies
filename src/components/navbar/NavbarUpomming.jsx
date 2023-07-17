@@ -77,16 +77,8 @@ const Navbar = ({ search }) => {
                             <ul className='items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 mt-5'>
                                 <li className='text-center'>
                                     <NavLink
-                                        to='/'
-                                        className='text-white cursor-pointer py-4 px-5 rounded-3xl text-bioMain  '
-                                    >
-                                        Home
-                                    </NavLink>
-                                </li>
-                                <li className='text-center'>
-                                    <NavLink
                                         to='/upcomming'
-                                        className='text-white cursor-pointer py-4 px-5 rounded-3xl text-bioMain  '
+                                        className='text-white cursor-pointer py-4 px-5 rounded-3xl text-bioMain text-sm '
                                         style={navLinkStyles}
                                     >
                                         Upcomming Movie

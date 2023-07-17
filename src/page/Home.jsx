@@ -43,11 +43,10 @@ const Home = () => {
         <main className='w-full h-fit bg-black container mx-auto '>
             <Navbar />
             <Banner nowPlaying={nowPlaying} />
-            {/* <Upcomming upcommings={upcommings} />
-
+            <Upcomming upcommings={upcommings} mostViewed={mostViewed} />
+            <MostViewed mostViewed={mostViewed} />
             <TopRate topRated={topRated} />
 
-            <MostViewed mostViewed={mostViewed} /> */}
             <Footer />
         </main>
     );

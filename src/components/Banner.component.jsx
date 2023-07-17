@@ -13,7 +13,7 @@ const Banner = ({ nowPlaying }) => {
                             className='flex flex-wrap justify-between items-center w-full'
                             key={i}
                         >
-                            <div className='w-1/2 hidden md:inline '>
+                            <div className='w-1/2 hidden lg:inline '>
                                 <p className='text-green'>Movie</p>
                                 <h2 className='text-white text-4xl '>
                                     {banner.title}

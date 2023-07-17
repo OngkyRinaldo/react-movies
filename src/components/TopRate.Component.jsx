@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { Link } from 'react-router-dom';
@@ -23,12 +24,9 @@ const TopRate = ({ topRated }) => {
         },
     };
     return (
-        <div className='md:border-y md:border-white  text-white container mx-auto my-10 p-5 '>
+        <section className='  text-white container mx-auto my-10 p-5 '>
             <div className='flex items-center justify-between mb-5'>
-                <h2>Top Rated</h2>
-                <Link to='topRate' className='text-orange-500 hover:text-white'>
-                    View All
-                </Link>
+                <h2 className='text-2xl font-bold'>Top Rate Movies</h2>
             </div>
             <Carousel responsive={responsive} className=' '>
                 {topRated.slice(0, 10).map((rate, i) => {
@@ -40,17 +38,19 @@ const TopRate = ({ topRated }) => {
                                 }/${rate.backdrop_path}`}
                                 alt={rate.title}
                             />
-                            <p className='text-lg  mt-3 text-slate-400 hover:text-slate-200'>
-                                {rate.title}
-                            </p>
-                            <p className='text-green-400 text-lg'>
-                                {rate.vote_average}
-                            </p>
                         </div>
                     );
                 })}
             </Carousel>
-        </div>
+            <div className='w-fit mx-auto'>
+                <Link
+                    to='/topRate'
+                    className='border border-green text-white py-2 px-5 block mx-auto mt-10 rounded-md hover:bg-green hover:text-black hover:border-white'
+                >
+                    View More
+                </Link>
+            </div>
+        </section>
     );
 };
 
