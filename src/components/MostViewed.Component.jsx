@@ -67,22 +67,8 @@ const MostViewed = ({ mostViewed }) => {
                     })}
                 </Carousel>
             </div>
-            <div className='grid grid-cols-4 gap-3 mt-5 lg:hidden'>
-                {mostViewed.slice(6, 10).map((rate, i) => {
-                    return (
-                        <div key={i} className='text-center'>
-                            <img
-                                src={`${
-                                    import.meta.env.VITE_REACT_APP_BASEIMGURL
-                                }/${rate.backdrop_path}`}
-                                alt={rate.title}
-                                className='mx-auto block'
-                            />
-                        </div>
-                    );
-                })}
-            </div>
-            <div className='grid grid-cols-6 gap-5 lg:mt-5 '>
+
+            <div className='grid grid-cols-6 gap-5 lg:mt-5  '>
                 {mostViewed.slice(6, 12).map((rate, i) => {
                     return (
                         <div key={i} className='text-center hidden lg:inline '>

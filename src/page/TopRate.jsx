@@ -27,9 +27,6 @@ const TopRate = () => {
                             className='border border-white shadow-lg shadow-slate-200 text-slate-400 mb-5 rounded-lg'
                             key={i}
                         >
-                            <h1 className='font-semibold text-center p-5'>
-                                {rate.title}
-                            </h1>
                             <img
                                 className='block mx-auto object-cover '
                                 src={`${
@@ -37,8 +34,11 @@ const TopRate = () => {
                                 }/${rate.poster_path}`}
                                 alt={rate.title}
                             />
-                            <div className='p-5 text-center'>
-                                <p className='text-green-400 text-lg'>
+                            <div className='p-5 text-center text-white text-lg '>
+                                <h1 className='font-semibold cursor-pointer '>
+                                    {rate.title}
+                                </h1>
+                                <p className='text-lg inline text-green cursor-pointer '>
                                     {rate.vote_average}
                                 </p>
                             </div>

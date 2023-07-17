@@ -17,7 +17,7 @@ const Navbar = ({ search }) => {
             className=' container mx-auto  border-b border-white'
             data-aos='fade-down'
         >
-            <nav className='w-full '>
+            <nav className='w-full pb-5 '>
                 <div className='justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8'>
                     <div>
                         <div className=' flex items-center justify-between py-3 md:py-5 md:block'>
@@ -25,9 +25,9 @@ const Navbar = ({ search }) => {
                                 <span className='text-green'>M</span>
                                 ovie
                             </Link>
-                            <div className='md:hidden'>
+                            <div className=' md:hidden'>
                                 <button
-                                    className='p-2 text-gray-700 rounded-md outline-none bg-white '
+                                    className='p-2 text-white rounded-md outline-none  '
                                     onClick={() => setNavbar(!navbar)}
                                 >
                                     {navbar ? (

@@ -12,7 +12,7 @@ const Navbar = ({ search }) => {
     };
     return (
         <header
-            className=' container mx-auto  border-b border-white'
+            className=' container mx-auto  border-b border-white pb-5'
             data-aos='fade-down'
         >
             <nav className='w-full '>
@@ -25,7 +25,7 @@ const Navbar = ({ search }) => {
                             </Link>
                             <div className='md:hidden'>
                                 <button
-                                    className='p-2 text-gray-700 rounded-md outline-none bg-white '
+                                    className='p-2 text-white rounded-md outline-none  '
                                     onClick={() => setNavbar(!navbar)}
                                 >
                                     {navbar ? (

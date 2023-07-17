@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
     return (
-        <footer className='w-full h-fit pb-10 '>
+        <footer className='w-full h-fit pb-10 mt-10'>
             <section className='container mx-auto '>
                 <div className='text-center  md:flex md:flex-wrap md:justify-between md:items-center'>
                     <p className='text-white text-4xl mb-5 md:mb-0'>
@@ -88,6 +90,27 @@ const Footer = () => {
                     </div>
                 </div>
             </section>
+
+            <div className='px-5 text-center block md:flex md:justify-evenly md:items-center md:gap-2 text-white mt-10'>
+                <Link
+                    to='https://www.behance.net/gallery/174715751/Custom-Movie-Website-landing-page-UI-Design?tracking_source=search_projects|movie+website+web+design'
+                    target='_blank'
+                    className='cursor-pointer'
+                >
+                    Design bycar RAFSAN RAJKIN copyright © 2023. All rights are
+                    reserved
+                </Link>
+
+                <div className='text-lg cursor-pointer hover:text-green mt-5 md:mt-0'>
+                    <Link
+                        to='https://github.com/OngkyRinaldo/react-movies'
+                        target='_blank'
+                        className='cursor-pointer '
+                    >
+                        <i className='fa-brands fa-github'></i>
+                    </Link>
+                </div>
+            </div>
         </footer>
     );
 };

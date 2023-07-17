@@ -25,12 +25,9 @@ const Upcomming = () => {
                 {upcommings?.map((upcomming, i) => {
                     return (
                         <div
-                            className='border border-white shadow-lg shadow-slate-200 text-slate-400 mb-5 rounded-lg'
+                            className='border border-white shadow-lg shadow-slate-200 text-white text-lg mb-5 rounded-lg'
                             key={i}
                         >
-                            <h1 className='font-semibold text-center p-5'>
-                                {upcomming.title}
-                            </h1>
                             <img
                                 className='block mx-auto object-cover '
                                 src={`${
@@ -38,12 +35,15 @@ const Upcomming = () => {
                                 }/${upcomming.poster_path}`}
                                 alt={upcomming.title}
                             />
-                            <div className='p-5 text-center'>
-                                <p className='text-lg  mt-3 text-slate-400 hover:text-slate-200'>
+                            <div className='p-5 text-center '>
+                                <h1 className='font-semibold cursor-pointer '>
                                     {upcomming.title}
-                                </p>
-                                <p className='text-lg  mt-3 text-red-500 hover:text-slate-200'>
-                                    {upcomming.release_date}
+                                </h1>
+                                <p className='text-lg inline cursor-pointer'>
+                                    Release Date:
+                                    <span className='text-green px-2'>
+                                        {upcomming.release_date}
+                                    </span>
                                 </p>
                             </div>
                         </div>
