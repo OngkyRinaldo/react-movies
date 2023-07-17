@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { rated, searchMovie } from '../api';
 import Navbar from '../components/navbar/NavbarTopRate';
-import Footer from '../components/Footer';
 
 const TopRate = () => {
     const [topRated, setTopRated] = useState([]);
@@ -47,7 +46,6 @@ const TopRate = () => {
                     );
                 })}
             </div>
-            <Footer />
         </div>
     );
 };

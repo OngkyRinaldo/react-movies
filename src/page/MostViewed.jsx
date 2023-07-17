@@ -1,7 +1,6 @@
 import { getMostViewed, searchMovie } from '../api';
 import { useEffect, useState } from 'react';
 import Navbar from '../components/navbar/NavbarMostView';
-import Footer from '../components/Footer';
 
 const MostViewed = () => {
     const [mostViewed, setMostViewed] = useState([]);
@@ -42,8 +41,6 @@ const MostViewed = () => {
                     );
                 })}
             </div>
-
-            <Footer />
         </div>
     );
 };

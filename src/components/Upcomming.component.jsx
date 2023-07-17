@@ -31,7 +31,7 @@ const Upcomming = ({ upcommings, mostViewed }) => {
                             <p className='border-t-2 border-green '>Popular</p>
                             <p>Movies</p>
                         </div>
-                        <div className=' text-lg w-full text-center flex justify-center items-center gap-2 '>
+                        <div className=' text-lg w-full text-center flex justify-center items-center gap-2  '>
                             <p>to</p>
                             <p>Watch</p>
                             <p>Now</p>
@@ -41,7 +41,7 @@ const Upcomming = ({ upcommings, mostViewed }) => {
                             <p>Watched</p>
                             <p className='border-b-2 border-green'>Movies</p>
                         </div>
-                        <div className=' text-lg text-green text-center cursor-pointer mt-3 '>
+                        <div className=' text-lg text-green text-center cursor-pointer mt-3 hover:underline '>
                             <Link to='/mostViewed'>view all</Link>
                         </div>
                     </div>

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getUpcoming, searchMovie } from '../api';
 import Navbar from '../components/navbar/NavbarUpomming';
-import Footer from '../components/Footer';
 
 const Upcomming = () => {
     const [upcommings, setUpcommings] = useState([]);
@@ -51,7 +50,6 @@ const Upcomming = () => {
                     );
                 })}
             </div>
-            <Footer />
         </div>
     );
 };

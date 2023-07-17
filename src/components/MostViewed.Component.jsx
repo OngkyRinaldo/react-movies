@@ -45,7 +45,7 @@ const MostViewed = ({ mostViewed }) => {
                             <p>Watched</p>
                             <p className='border-b-2 border-green'>Movies</p>
                         </div>
-                        <div className=' text-2xl text-green text-center cursor-pointer mt-3 '>
+                        <div className=' text-2xl text-green text-center cursor-pointer mt-3 hover:underline '>
                             <Link to='/mostViewed'>view all</Link>
                         </div>
                     </div>

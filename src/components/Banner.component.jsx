@@ -2,6 +2,7 @@
 
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Link } from 'react-router-dom';
 
 const Banner = ({ nowPlaying }) => {
     return (
@@ -22,12 +23,15 @@ const Banner = ({ nowPlaying }) => {
                                     {banner.overview}
                                 </p>
                                 <div className='flex flex-wrap justify-center items-center mt-5 gap-5 '>
-                                    <button className='px-8 py-2 bg-green text-black text-2xl font-bold rounded-md cursor-pointer'>
+                                    <button className='px-8 py-2 bg-green border text-black text-2xl font-bold rounded-md cursor-pointer hover:bg-black hover:text-white hover:border-green'>
                                         Watch Now
                                     </button>
-                                    <button className='px-8 py-2 bg-black text-white border border-green text-xl font-bold rounded-md cursor-pointer'>
+                                    <Link
+                                        className='px-8 py-2 bg-black text-white border border-green text-xl font-bold rounded-md cursor-pointer hover:bg-green hover:text-black hover:border-white'
+                                        to='/MostViewed'
+                                    >
                                         My List
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                             <div className='w-fit  h-fit mx-auto  '>
