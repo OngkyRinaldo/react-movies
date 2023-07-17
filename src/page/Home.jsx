@@ -40,18 +40,16 @@ const Home = () => {
     }, []);
 
     return (
-        <div className='w-full h-fit bg-black '>
+        <main className='w-full h-fit bg-black container mx-auto '>
             <Navbar />
             <Banner nowPlaying={nowPlaying} />
-            <Upcomming upcommings={upcommings} />
+            {/* <Upcomming upcommings={upcommings} />
 
             <TopRate topRated={topRated} />
 
-            {/* <SearchBox search={search} /> */}
-
-            <MostViewed mostViewed={mostViewed} />
+            <MostViewed mostViewed={mostViewed} /> */}
             <Footer />
-        </div>
+        </main>
     );
 };
 
