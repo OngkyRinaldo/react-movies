@@ -23,7 +23,7 @@ const Upcomming = () => {
             <Navbar search={search} />
 
             <div className='w-full grid grid-cols-1 md:grid-cols-2 md:gap-2 px-5 pb-5 mt-10 border-b border-white'>
-                {upcommings.map((upcomming, i) => {
+                {upcommings?.map((upcomming, i) => {
                     return (
                         <div
                             className='border border-white shadow-lg shadow-slate-200 text-slate-400 mb-5 rounded-lg'

@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Logo from '../../assets/img/logo.png';
+import { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+
+// eslint-disable-next-line react/prop-types
 const Navbar = ({ search }) => {
     const [navbar, setNavbar] = useState(false);
 
+    const navLinkStyles = ({ isActive }) => {
+        return {
+            fontWeight: isActive ? 'bold' : 'normal',
+            color: isActive ? '#C0F73F' : '#D1D0D2',
+        };
+    };
+
     return (
-        <div
+        <header
             className=' container mx-auto  border-b border-white'
             data-aos='fade-down'
         >
@@ -13,14 +21,9 @@ const Navbar = ({ search }) => {
                 <div className='justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8'>
                     <div>
                         <div className=' flex items-center justify-between py-3 md:py-5 md:block'>
-                            <Link to='/'>
-                                <img
-                                    src={Logo}
-                                    alt='icon.png'
-                                    width={48}
-                                    height={40}
-                                    className=' object-contain cursor-pointer rounded-full'
-                                />
+                            <Link to='/' className='text-white'>
+                                <span className='text-green'>M</span>
+                                ovie
                             </Link>
                             <div className='md:hidden'>
                                 <button
@@ -75,28 +78,37 @@ const Navbar = ({ search }) => {
                             />
                             <ul className='items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 mt-5'>
                                 <li className='text-center'>
-                                    <Link
+                                    <NavLink
+                                        to='/'
+                                        className='text-white cursor-pointer py-4 px-5 rounded-3xl text-bioMain  '
+                                    >
+                                        Home
+                                    </NavLink>
+                                </li>
+                                <li className='text-center'>
+                                    <NavLink
                                         to='/upcomming'
-                                        className='text-white cursor-pointer py-4 px-5 rounded-3xl text-bioMain hover:underline hover:decoration-orange-500 '
+                                        className='text-white cursor-pointer py-4 px-5 rounded-3xl text-bioMain  '
                                     >
                                         Upcomming Movie
-                                    </Link>
+                                    </NavLink>
                                 </li>
                                 <li className='text-center'>
-                                    <Link
+                                    <NavLink
                                         to='/topRate'
-                                        className='text-white cursor-pointer py-4 px-5 rounded-3xl text-bioMain hover:underline hover:decoration-orange-500 '
+                                        className='text-white cursor-pointer py-4 px-5 rounded-3xl text-bioMain  '
                                     >
                                         Top Rate
-                                    </Link>
+                                    </NavLink>
                                 </li>
                                 <li className='text-center'>
-                                    <Link
+                                    <NavLink
                                         to='/mostViewed'
-                                        className='text-white cursor-pointer py-4 px-5 rounded-3xl text-bioMain hover:underline hover:decoration-orange-500 '
+                                        className='text-white cursor-pointer py-4 px-5 rounded-3xl text-bioMain  '
+                                        style={navLinkStyles}
                                     >
                                         Popular
-                                    </Link>
+                                    </NavLink>
                                 </li>
                             </ul>
                         </div>
@@ -105,15 +117,15 @@ const Navbar = ({ search }) => {
                         <div className=' py-3 md:py-5 '>
                             <input
                                 type='text'
-                                placeholder='search your movies...'
-                                className='flex-1 rounded-lg border border-slate-500 py-2 px-4 '
+                                placeholder='Search... '
+                                className=' text-lg flex-1 rounded-full border border-green outline-green py-2 px-4 bg-black text-white'
                                 onChange={({ target }) => search(target.value)}
                             />
                         </div>
                     </div>
                 </div>
             </nav>
-        </div>
+        </header>
     );
 };
 
