@@ -1,25 +1,13 @@
-import { useEffect, useState } from 'react';
-import { rated, searchMovie } from '../api';
 import Navbar from '../components/navbar/NavbarTopRate';
+import { useContext } from 'react';
+import { UseContext } from '../context/home.context';
 
 const TopRate = () => {
-    const [topRated, setTopRated] = useState([]);
-    useEffect(() => {
-        rated().then((result) => {
-            setTopRated(result);
-        });
-    }, []);
-
-    const search = async (q) => {
-        if (q.length > 3) {
-            const query = await searchMovie(q);
-            setTopRated(query.results);
-        }
-    };
+    const { topRated, SearchTopRated } = useContext(UseContext);
 
     return (
         <div className='w-full h-fit bg-black '>
-            <Navbar search={search} />
+            <Navbar search={SearchTopRated} />
             <div className='w-full grid grid-cols-1 md:grid-cols-2 md:gap-2 px-5 pb-5 mt-10 border-b border-white'>
                 {topRated.map((rate, i) => {
                     return (

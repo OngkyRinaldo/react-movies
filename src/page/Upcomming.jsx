@@ -1,25 +1,13 @@
-import { useEffect, useState } from 'react';
-import { getUpcoming, searchMovie } from '../api';
+import { useContext } from 'react';
 import Navbar from '../components/navbar/NavbarUpomming';
+import { UseContext } from '../context/home.context';
 
 const Upcomming = () => {
-    const [upcommings, setUpcommings] = useState([]);
+    const { upcommings, SearchUpcommings } = useContext(UseContext);
 
-    useEffect(() => {
-        getUpcoming().then((result) => {
-            setUpcommings(result);
-        });
-    }, []);
-
-    const search = async (q) => {
-        if (q.length > 3) {
-            const query = await searchMovie(q);
-            setUpcommings(query.results);
-        }
-    };
     return (
         <div className='w-full h-fit bg-black '>
-            <Navbar search={search} />
+            <Navbar search={SearchUpcommings} />
 
             <div className='w-full grid grid-cols-1 md:grid-cols-2 md:gap-2 px-5 pb-5 mt-10 border-b border-white'>
                 {upcommings?.map((upcomming, i) => {

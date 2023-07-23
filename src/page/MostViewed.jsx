@@ -1,25 +1,13 @@
-import { getMostViewed, searchMovie } from '../api';
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import Navbar from '../components/navbar/NavbarMostView';
+import { UseContext } from '../context/home.context';
 
 const MostViewed = () => {
-    const [mostViewed, setMostViewed] = useState([]);
-    useEffect(() => {
-        getMostViewed().then((result) => {
-            setMostViewed(result);
-        });
-    }, []);
-
-    const search = async (q) => {
-        if (q.length > 3) {
-            const query = await searchMovie(q);
-            setMostViewed(query.results);
-        }
-    };
+    const { mostViewed, SearchMostViewed } = useContext(UseContext);
 
     return (
         <main className='w-full h-fit bg-black  '>
-            <Navbar search={search} />
+            <Navbar search={SearchMostViewed} />
             <section className='container mx-auto'>
                 <div className='w-full grid grid-cols-1 md:grid-cols-2 md:gap-2 px-5 pb-5 mt-10 border-b border-white '>
                     {mostViewed.map((view, i) => {

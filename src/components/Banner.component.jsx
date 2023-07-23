@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
-
+import { useContext } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Link } from 'react-router-dom';
+import { UseContext } from '../context/home.context';
 
-const Banner = ({ nowPlaying }) => {
+const Banner = () => {
+    const { nowPlaying } = useContext(UseContext);
     return (
         <section className='text-center border-b border-white rounded-lg  mb-5 mt-5  '>
             <Carousel>

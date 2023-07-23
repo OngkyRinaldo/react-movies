@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
+import { useContext } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { Link } from 'react-router-dom';
+import { UseContext } from '../context/home.context';
 
-const TopRate = ({ topRated }) => {
+const TopRate = () => {
+    const { topRated } = useContext(UseContext);
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
