@@ -1,9 +1,12 @@
 import Navbar from '../components/navbar/NavbarTopRate';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { UseContext } from '../context/home.context';
 
 const TopRate = () => {
     const { topRated, SearchTopRated } = useContext(UseContext);
+    useEffect(() => {
+        document.title = 'Movie - Top Rate Movie ';
+    }, []);
 
     return (
         <div className='w-full h-fit bg-black '>

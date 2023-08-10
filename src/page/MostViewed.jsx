@@ -1,9 +1,12 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import Navbar from '../components/navbar/NavbarMostView';
 import { UseContext } from '../context/home.context';
 
 const MostViewed = () => {
     const { mostViewed, SearchMostViewed } = useContext(UseContext);
+    useEffect(() => {
+        document.title = 'Movie - Popular Movie ';
+    }, []);
 
     return (
         <main className='w-full h-fit bg-black  '>

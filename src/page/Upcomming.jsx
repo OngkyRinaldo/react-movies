@@ -1,9 +1,12 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import Navbar from '../components/navbar/NavbarUpomming';
 import { UseContext } from '../context/home.context';
 
 const Upcomming = () => {
     const { upcommings, SearchUpcommings } = useContext(UseContext);
+    useEffect(() => {
+        document.title = 'Movie - UpComming Movie ';
+    }, []);
 
     return (
         <div className='w-full h-fit bg-black '>
