@@ -72,7 +72,7 @@ const Navbar = ({ searchQuery, setSearchQuery }) => {
                             <input
                                 type='text'
                                 placeholder='search your movies...'
-                                className='md:hidden w-full rounded-lg border border-slate-500 py-2 px-4 text-center'
+                                className='md:hidden w-full rounded-lg border border-slate-500 py-2 px-4 text-center text-white'
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 value={searchQuery}
                             />
