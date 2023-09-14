@@ -1,12 +1,26 @@
 /* eslint-disable react/prop-types */
-import { useContext } from 'react';
+
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { UseContext } from '../context/home.context';
+import {
+    fetchTopRates,
+    selectAllTopRatesData,
+} from '../features/topRateMoviesSlice';
+import { useEffect } from 'react';
 
 const TopRate = () => {
-    const { topRated } = useContext(UseContext);
+    const dispatch = useDispatch();
+
+    const { topRates, status, error } = useSelector(selectAllTopRatesData);
+
+    useEffect(() => {
+        if (status === 'idle') {
+            dispatch(fetchTopRates());
+        }
+    }, [status, dispatch]);
+
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -31,20 +45,27 @@ const TopRate = () => {
             <div className='flex items-center justify-between mb-5'>
                 <h2 className='text-2xl font-bold'>Top Rate Movies</h2>
             </div>
-            <Carousel responsive={responsive} className=' '>
-                {topRated.slice(0, 10).map((rate, i) => {
-                    return (
-                        <div key={i} className='text-center'>
-                            <img
-                                src={`${
-                                    import.meta.env.VITE_REACT_APP_BASEIMGURL
-                                }/${rate.backdrop_path}`}
-                                alt={rate.title}
-                            />
-                        </div>
-                    );
-                })}
-            </Carousel>
+            {status === 'loading' ? (
+                <div>Loading...</div>
+            ) : status === 'failed' ? (
+                <div>Error: {error}</div>
+            ) : (
+                <Carousel responsive={responsive} className=' '>
+                    {topRates.slice(0, 10).map((rate, i) => {
+                        return (
+                            <div key={i} className='text-center'>
+                                <img
+                                    src={`${
+                                        import.meta.env
+                                            .VITE_REACT_APP_BASEIMGURL
+                                    }/${rate.backdrop_path}`}
+                                    alt={rate.title}
+                                />
+                            </div>
+                        );
+                    })}
+                </Carousel>
+            )}
             <div className='w-fit mx-auto'>
                 <Link
                     to='/topRate'

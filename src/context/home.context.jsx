@@ -1,11 +1,12 @@
 import { createContext, useEffect, useState } from 'react';
 import {
     getMostViewed,
-    getNowplaying,
+    // getNowplaying,
     getUpcoming,
     rated,
     searchMovie,
 } from '../api';
+import axios from 'axios';
 
 export const UseContext = createContext({
     nowPlaying: [],
@@ -22,10 +23,20 @@ export const HomeProvider = ({ children }) => {
     // start nowPlaying context
     const [nowPlaying, setNowPlaying] = useState([]);
 
+    const getNowplaying = async () => {
+        const responseNowPlaying = await axios.get(
+            `${
+                import.meta.env.VITE_REACT_APP_BASEURL
+            }/movie/now_playing?page=1&api_key=${
+                import.meta.env.VITE_REACT_APP_API_KEY
+            }`
+        );
+
+        setNowPlaying(responseNowPlaying.data.results);
+    };
+
     useEffect(() => {
-        getNowplaying().then((result) => {
-            setNowPlaying(result);
-        });
+        getNowplaying();
     }, []);
 
     // end nowPlaying context

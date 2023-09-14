@@ -1,8 +1,7 @@
 import Banner from '../components/Banner.component';
-
 import TopRate from '../components/TopRate.Component';
-import MostViewed from '../components/MostViewed.Component';
 import Upcomming from '../components/Upcomming.component';
+import PopularMovie from '../components/PopularMovie.Component';
 import Navbar from '../components/navbar/Navbar';
 import { useEffect } from 'react';
 
@@ -15,7 +14,7 @@ const Home = () => {
             <Navbar />
             <Banner />
             <Upcomming />
-            <MostViewed />
+            <PopularMovie />
             <TopRate />
         </main>
     );
