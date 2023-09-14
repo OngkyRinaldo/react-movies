@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
-const Navbar = ({ search }) => {
+const Navbar = ({ searchQuery, setSearchQuery }) => {
     const [navbar, setNavbar] = useState(false);
     const navLinkStyles = ({ isActive }) => {
         return {
@@ -72,7 +72,8 @@ const Navbar = ({ search }) => {
                                 type='text'
                                 placeholder='search your movies...'
                                 className='md:hidden w-full rounded-lg border border-slate-500 py-2 px-4 text-center'
-                                onChange={({ target }) => search(target.value)}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                value={searchQuery}
                             />
                             <ul className='items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 mt-5'>
                                 <li className='text-center'>
@@ -109,7 +110,8 @@ const Navbar = ({ search }) => {
                                 type='text'
                                 placeholder='Search... '
                                 className=' text-lg flex-1 rounded-full border border-green outline-green py-2 px-4 bg-black text-white'
-                                onChange={({ target }) => search(target.value)}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                value={searchQuery}
                             />
                         </div>
                     </div>
